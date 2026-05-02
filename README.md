@@ -10,7 +10,7 @@
 >Simple React RTK app, build with Async Redux Toolkit (RTK Thunk).
 >Divided into branches
 >Soft dark original style
-
+>Used json-placeholder's users API
 
 **How to clone the repository**:
 ```bash
