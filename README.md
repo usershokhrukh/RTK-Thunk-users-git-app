@@ -14,7 +14,7 @@
 
 **How to clone the repository**:
 ```bash
-git clone [https://github.com/usershokhrukh/RTK-Thunk-users-git-app](https://github.com/usershokhrukh/RTK-Thunk-users-git-app)
+git clone https://github.com/usershokhrukh/RTK-Thunk-users-git-app
 ```
 
 **Vercel**:
