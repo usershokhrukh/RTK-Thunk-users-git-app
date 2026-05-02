@@ -3,14 +3,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUsers } from './features/UsersSlice';
 
 const App = () => {
-  const user = useSelector((state) => state)
-  console.log(user);
+  const {data, loading, error} = useSelector((state) => state.user)
   const dispatch = useDispatch()
   useEffect(()=> {
     dispatch(fetchUsers())
   }, [])
   return (
-    <div>App</div>
+    <div>
+    <h2>{loading ? "Loading...": null}</h2>
+    <h2>{error ? `${error}`: null}</h2>
+
+    </div>
   )
 }
 
