@@ -1,12 +1,37 @@
-import React from "react";
+import React, { memo } from "react";
 
 const UsersRender = ({users, filter}) => {
-  console.log(filter);
-
   return users?.map((item) => {
-    switch (filter?.filter) {
+    switch (filter?.filter.toLowerCase()) {
+      case "":
+        return (
+          <div className="main__items">
+            <p className="main__text">
+              <span className="main__secondary-text">name:</span> {item?.name}
+            </p>
+            <p className="main__text">
+              <span className="main__secondary-text">email:</span> {item?.email}
+            </p>
+            <p className="main__text">
+              <span className="main__secondary-text">phone:</span> {item?.phone}
+            </p>
+            <p className="main__text">
+              <span className="main__secondary-text">username:</span>{" "}
+              {item?.username}
+            </p>
+            <p className="main__text">
+              <span className="main__secondary-text">website:</span>{" "}
+              {item?.website}
+            </p>
+            <p className="main__text">
+              <span className="main__secondary-text">city:</span>{" "}
+              {item?.address?.city}
+            </p>
+          </div>
+        );
+        break;
       case "city":
-        if (item?.address?.city.includes(filter?.search)) {
+        if (item?.address?.city.toLowerCase().includes(filter?.search.toLowerCase())) {
           return (
             <div className="main__items">
               <p className="main__text">
@@ -37,7 +62,7 @@ const UsersRender = ({users, filter}) => {
         }
         break;
       case "email":
-        if (item?.email.includes(filter?.search)) {
+        if (item?.email.toLowerCase().includes(filter?.search.toLowerCase())) {
           return (
             <div className="main__items">
               <p className="main__text">
@@ -68,7 +93,7 @@ const UsersRender = ({users, filter}) => {
         }
         break;
       case "phone":
-        if (item?.phone.includes(filter?.search)) {
+        if (item?.phone.toLowerCase().includes(filter?.search.toLowerCase())) {
           return (
             <div className="main__items">
               <p className="main__text">
@@ -99,7 +124,7 @@ const UsersRender = ({users, filter}) => {
         }
         break;
       case "username":
-        if (item?.usernmae.includes(filter?.search)) {
+        if (item?.username.toLowerCase().includes(filter?.search.toLowerCase())) {
           return (
             <div className="main__items">
               <p className="main__text">
@@ -130,7 +155,7 @@ const UsersRender = ({users, filter}) => {
         }
         break;
       case "website":
-        if (item?.website.includes(filter?.search)) {
+        if (item?.website.toLowerCase().includes(filter?.search.toLowerCase())) {
           return (
             <div className="main__items">
               <p className="main__text">
@@ -161,7 +186,7 @@ const UsersRender = ({users, filter}) => {
         }
         break;
       case "name":
-        if (item?.name.includes(filter?.search)) {
+        if (item?.name.toLowerCase().includes(filter?.search.toLowerCase())) {
           return (
             <div className="main__items">
               <p className="main__text">
@@ -195,4 +220,4 @@ const UsersRender = ({users, filter}) => {
   });
 };
 
-export default UsersRender;
+export default memo(UsersRender);
